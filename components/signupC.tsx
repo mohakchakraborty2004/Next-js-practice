@@ -1,5 +1,6 @@
 "use client"
 
+import signup from "@/app/actions/user";
 import axios from "axios";
 import { useState } from "react"
 
@@ -31,10 +32,8 @@ export function SignupComponent() {
         <div>
             <button className="bg-black font-semibold p-3 text-white rounded-2xl mt-3"
             onClick={async()=> {
-              const response = await axios.post("http://localhost:3000/api/user", {
-                email,
-                password
-              })
+                 const response = await signup(email, password )
+                 console.log(response)
             }}
             >Signup</button>
         </div>
